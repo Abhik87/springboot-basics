@@ -16,24 +16,24 @@ public class TopicController {
 	TopicService topicService;
 
 	@RequestMapping("/topics")
-	public List<Topic> getAllTopics() {
+	public List<TopicEntity> getAllTopics() {
 		return topicService.getAllTopics();
 	}
 
 	@RequestMapping("/topics/{id}")
-	public Topic getTopic(@PathVariable String id) {
+	public TopicEntity getTopic(@PathVariable String id) {
 		return topicService.getTopic(id);
 	}
 
 	@RequestMapping(method = RequestMethod.POST, value = "/topics")
-	public String addTopic(@RequestBody Topic topic) {
-		Topic savedTopic = topicService.addTopic(topic);
+	public String addTopic(@RequestBody TopicEntity topic) {
+		TopicEntity savedTopic = topicService.addTopic(topic);
 		return savedTopic.toString();
 	}
 
 	@RequestMapping(method = RequestMethod.PUT, value = "/topics/{id}")
-	public String updateTopic(@RequestBody Topic topic, @PathVariable String id) {
-		Topic updatedTopic = topicService.updateTopic(topic, id);
+	public String updateTopic(@RequestBody TopicEntity topic, @PathVariable String id) {
+		TopicEntity updatedTopic = topicService.updateTopic(topic, id);
 		return updatedTopic.toString();
 	}
 

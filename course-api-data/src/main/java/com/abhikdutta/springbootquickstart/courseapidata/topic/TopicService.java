@@ -12,24 +12,24 @@ public class TopicService {
 	@Autowired
 	TopicRepository topicRepository;
 
-	public List<Topic> getAllTopics() {
+	public List<TopicEntity> getAllTopics() {
 		return topicRepository.findAll();
 	}
 
-	public Topic getTopic(String id) {
-		Optional<Topic> topicOptional = topicRepository.findById(id);
-		Topic topic = null;
+	public TopicEntity getTopic(String id) {
+		Optional<TopicEntity> topicOptional = topicRepository.findById(id);
+		TopicEntity topic = null;
 		if (topicOptional.isPresent()) {
 			topic = topicOptional.get();
 		}
 		return topic;
 	}
 
-	public Topic addTopic(Topic topic) {
+	public TopicEntity addTopic(TopicEntity topic) {
 		return topicRepository.save(topic);
 	}
 
-	public Topic updateTopic(Topic topic, String id) {
+	public TopicEntity updateTopic(TopicEntity topic, String id) {
 		return topicRepository.save(topic);
 	}
 
